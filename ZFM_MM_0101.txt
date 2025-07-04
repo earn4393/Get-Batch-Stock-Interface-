@@ -13,6 +13,8 @@ FUNCTION ZFM_MM_0101.
 *"----------------------------------------------------------------------
   REFRESH : T_MCHB , T_AMPL .
 
+* prepare AMPL (MPN Material) data
+
   IF T_EMATN[] IS NOT INITIAL.
     SELECT * FROM AMPL INTO TABLE T_AMPL
       WHERE EMATN IN T_EMATN AND WERKS IN T_WERKS.
@@ -33,7 +35,7 @@ FUNCTION ZFM_MM_0101.
 
   ENDIF.
 
-
+* prepare MCHB (Stcok) data
 
   SELECT MATNR WERKS LGORT CHARG CLABS
          CUMLM CINSM CEINM CSPEM CRETM
@@ -63,6 +65,8 @@ FUNCTION ZFM_MM_0101.
     ENDIF.
 
   ENDIF.
+
+* prepare MESEG (Stock from movement) data
 
   IF LT_EMATR[] IS NOT INITIAL.
 
